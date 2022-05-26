@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: var(--body-font);
+  text-rendering: optimizespeed !important;
+}
+
+body,
+html {
+  overflow-x: hidden !important;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 26px;
+}
+
+ul,
+ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
