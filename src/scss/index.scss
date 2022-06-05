@@ -260,7 +260,7 @@ h6 {
 }
 
 .h1_title {
-    font-family: $big_title_font;
+    font-family: $title_font;
     @include font-size($h1_font_sizes);
     text-transform: capitalize;
     font-weight: 500;
@@ -310,7 +310,7 @@ h6 {
     z-index: 10;
 
     h2 {
-        font-family: $big_title_font;
+        font-family: $title_font;
         font-size: 180px;
         margin: 0;
         color: transparent;
@@ -462,15 +462,19 @@ ol {
                 position: relative;
                 @include flex_center(unset, center);
                 text-transform: capitalize;
+                padding-bottom: 5px;
 
                 &:before {
                     content: "";
-                    width: 6px;
-                    height: 6px;
+                    position: absolute;
+                    bottom: -10px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
                     background: $primary_color;
                     border-radius: 50%;
-                    display: inline-block;
-                    margin-right: 5px;
+                    display: block;
+                    opacity: 0;
                     transition: 0.3s;
                 }
 
@@ -479,8 +483,8 @@ ol {
                     opacity: 1;
 
                     &:before {
-                        background: $black_color;
-                        opacity: 0.6;
+                        opacity: 1;
+                        bottom: 0;
                     }
                 }
             }
