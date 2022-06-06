@@ -84,11 +84,6 @@ section {
 
 /*==========Form CSS==========*/
 
-select {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-}
-
 .form_element {
     position: relative;
 
@@ -129,6 +124,8 @@ select {
 
 select {
     color: $input_color !important;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     &::-ms-expand {
         display: none;
     }
@@ -193,7 +190,7 @@ input[type="checkbox"]:checked::before {
 }
 
 input[type="radio"]:checked::before {
-    @include after_before;
+    @include after_before(100%, 100%);
     border-radius: 50%;
     background: $primary_color;
     border: 3px solid $white_color;
@@ -213,18 +210,17 @@ p {
     color: $silver_color;
 
     a {
-        color: inherit;
-        background: 0 0;
-        background-image: linear-gradient($yellow_color, $yellow_color);
-        background-repeat: no-repeat;
-        background-size: 100% 50px;
-        background-position: 0px 17px;
+        color: $primary_color;
         position: relative;
         transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 
         &:hover {
             background-position: 0 0;
         }
+    }
+
+    &.big_text {
+        @include font-size($big_p_font_size);
     }
 }
 
@@ -244,7 +240,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: bold;
+    font-weight: 500;
     font-family: $title_font;
 }
 
@@ -260,30 +256,17 @@ h6 {
 }
 
 .h1_title {
-    font-family: $title_font;
     @include font-size($h1_font_sizes);
     text-transform: capitalize;
-    font-weight: 500;
     font-style: italic;
-
-    img {
-        width: 150px;
-        height: 70px;
-        border-radius: $lg_border_radius;
-        object-fit: cover;
-        object-position: center;
-        box-shadow: $box_shadow;
-        margin: -15px 20px 0;
-        pointer-events: none;
-    }
 }
 
 .h2_title {
-    font-size: 36px;
-    line-height: 50px;
-    color: $primary_color;
-    margin-bottom: 13px;
-    text-transform: uppercase;
+    @include font-size($h2_font_sizes);
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
 }
 
 .h3_title {
@@ -301,48 +284,6 @@ h6 {
     line-height: 28px;
 }
 
-.big-title {
-    position: absolute;
-    top: 0;
-    right: -300px;
-    white-space: nowrap;
-    mix-blend-mode: difference;
-    z-index: 10;
-
-    h2 {
-        font-family: $title_font;
-        font-size: 180px;
-        margin: 0;
-        color: transparent;
-        -webkit-text-stroke: 3px $black_color;
-        text-transform: uppercase;
-        opacity: 0.8;
-    }
-}
-
-.rotate-title {
-    transform: rotate(90deg) translate(0, -9vw);
-    left: 50%;
-    top: 580px;
-}
-
-.big-title.white-text {
-    mix-blend-mode: unset;
-    h2 {
-        -webkit-text-stroke-color: $white_color;
-        opacity: 1;
-        color: transparent;
-    }
-}
-
-.h2_title span,
-.h3_title span,
-.h4_title span,
-.h5_title span,
-.sub_title span {
-    display: block;
-}
-
 ul,
 ol {
     list-style: none;
@@ -350,14 +291,42 @@ ol {
     padding: 0;
 }
 
-.excerpt_content {
-    ul {
-        li {
-            a {
-                color: $primary_color;
-                text-decoration: underline !important;
-                transition: 0.3s;
-            }
+.read_more {
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    padding-bottom: 3px;
+
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: $primary_color;
+        transform: scaleX(0);
+        transform-origin: right;
+        -webkit-transition: -webkit-transform 0.95s cubic-bezier(0.23, 1, 0.23, 1);
+        transition: -webkit-transform 0.95s cubic-bezier(0.23, 1, 0.23, 1);
+        transition: transform 0.95s cubic-bezier(0.23, 1, 0.23, 1);
+        transition: transform 0.95s cubic-bezier(0.23, 1, 0.23, 1), -webkit-transform 0.95s cubic-bezier(0.23, 1, 0.23, 1);
+        opacity: 0.5;
+    }
+
+    svg {
+        transition: 0.3s;
+    }
+
+    &:hover {
+        &:after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        svg {
+            transform: rotate(45deg);
         }
     }
 }
@@ -367,30 +336,64 @@ ol {
 /*==========Button CSS==========*/
 
 .sec-btn {
-    border-radius: $lg_border_radius;
-    padding: 14px 41px;
+    padding: 16px 41px;
     line-height: 1.42857143;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
-    background-color: $primary_color;
-    color: $white_color;
+    background-color: transparent;
+    color: $black_color;
     position: relative;
-    border: 2px solid $primary_color;
+    border: none;
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 1px;
     z-index: 2;
+    border-radius: 0 !important;
     outline: none !important;
     font-weight: 600;
-    box-shadow: $button_box_shadow;
-    transition: $transition;
+    transition: 0.4s;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 1px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $black_color;
+        border-radius: 70%;
+        opacity: 0.8;
+        background: transparent;
+        z-index: -2;
+        transform: rotate(1deg);
+        transition: 0.3s;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $black_color;
+        border-radius: 70%;
+        background-color: $primary_color;
+        z-index: -1;
+        transition: 0.3s;
+    }
 
     &:hover {
-        color: $primary_color;
-        background-color: rgba($white_color, 0.6);
-        backdrop-filter: blur(3px);
+        color: $white_color;
+
+        &:before {
+            background-color: $black_color;
+        }
+
+        &:after {
+            top: 0;
+        }
     }
 
     &.white-hover-btn {
@@ -451,18 +454,26 @@ ol {
     top: 0;
     left: 0;
     width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
 
     .header_menu {
-        @include align_center(center);
+        @include flex_center(center, center);
         ul {
             @include list_item {
+                --menu_padding: 5px;
                 color: $black_color;
                 font-weight: 500;
                 transition: 0.3s;
                 position: relative;
-                @include flex_center(unset, center);
-                text-transform: capitalize;
-                padding-bottom: 5px;
+                @include flex_center(initial, center);
+                text-transform: uppercase;
+                padding-left: var(--menu_padding);
+                padding-right: var(--menu_padding);
+                padding-bottom: 2px;
+                @include font-size($font_sizes_18);
+                font-weight: 600;
 
                 &:before {
                     content: "";
@@ -478,16 +489,30 @@ ol {
                     transition: 0.3s;
                 }
 
-                &:hover {
+                &:hover,
+                &.active_menu {
                     color: $primary_color;
-                    opacity: 1;
 
                     &:before {
-                        opacity: 1;
+                        opacity: 0.4;
                         bottom: 0;
                     }
                 }
             }
+        }
+    }
+
+    .header_button {
+        @include flex_center(right, center);
+        .theme-toggle {
+            --button_size: 40px;
+            font-size: 20px;
+            width: var(--button_size);
+            height: var(--button_size);
+            border-radius: 50%;
+            background-color: $black_color;
+            color: $white_color;
+            @include flex_center(center, center);
         }
     }
 }

@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Logo from "../images/logo.svg";
+import "@theme-toggles/react/css/Expand.css";
+import { Expand } from "@theme-toggles/react";
 
 const Header = () => {
+    const [isToggled, setToggle] = useState(true);
     return (
         <>
             <header className="site_header">
@@ -16,7 +20,7 @@ const Header = () => {
                             <nav className="header_menu">
                                 <ul>
                                     <li>
-                                        <a href="#" title="Home">
+                                        <a href="#" title="Home" className="active_menu">
                                             Home
                                         </a>
                                     </li>
@@ -33,7 +37,11 @@ const Header = () => {
                                 </ul>
                             </nav>
                         </Col>
-                        <Col lg={3}></Col>
+                        <Col lg={3}>
+                            <div className="header_button">
+                                <Expand toggled={isToggled} toggle={setToggle} duration={600} />
+                            </div>
+                        </Col>
                     </Row>
                 </Container>
             </header>

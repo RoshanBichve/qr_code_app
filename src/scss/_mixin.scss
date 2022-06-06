@@ -4,13 +4,13 @@
     align-items: $align;
 }
 
-@mixin after_before {
+@mixin after_before($width, $height) {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: $width;
+    height: $height;
 }
 
 @mixin align_center($alignment) {
