@@ -513,6 +513,7 @@ ol {
             background-color: $black_color;
             color: $white_color;
             @include flex_center(center, center);
+            @include shadow_3D_1;
         }
     }
 }

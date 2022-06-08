@@ -20,7 +20,7 @@ const Header = () => {
                             <nav className="header_menu">
                                 <ul>
                                     <li>
-                                        <a href="#" title="Home" className="active_menu">
+                                        <a href="/" title="Home" className="active_menu">
                                             Home
                                         </a>
                                     </li>
@@ -40,6 +40,28 @@ const Header = () => {
                         <Col lg={3}>
                             <div className="header_button">
                                 <Expand toggled={isToggled} toggle={setToggle} duration={600} />
+
+                                <div className="drop_down">
+                                    <button className="drop_down_btn">
+                                        English
+                                        <svg width="12" height="5" viewBox="0 0 12 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 5L0 0L12 1.34596e-06L6 5Z" fill="white" />
+                                        </svg>
+                                    </button>
+                                    <ul className="drop_down_list">
+                                        <li>
+                                            <a href="#" title="English">
+                                                English
+                                            </a>
+                                            <a href="#" title="English">
+                                                English
+                                            </a>
+                                            <a href="#" title="English">
+                                                English
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </Col>
                     </Row>
