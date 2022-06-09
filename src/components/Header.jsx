@@ -10,7 +10,7 @@ const Header = () => {
         <>
             <header className="site_header">
                 <Container fluid>
-                    <Row>
+                    <Row className="align-items-center">
                         <Col lg={3}>
                             <a href="/" className="site_logo" title="Logo">
                                 <img src={Logo} alt="Qr_Logo" />
@@ -53,9 +53,13 @@ const Header = () => {
                                             <a href="#" title="English">
                                                 English
                                             </a>
+                                        </li>
+                                        <li>
                                             <a href="#" title="English">
                                                 English
                                             </a>
+                                        </li>
+                                        <li>
                                             <a href="#" title="English">
                                                 English
                                             </a>

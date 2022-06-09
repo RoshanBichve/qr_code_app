@@ -186,7 +186,7 @@ input[type="checkbox"]:checked::before {
     left: 0;
     width: 100%;
     height: 100%;
-    @include flex_center(center, center);
+    @include flex(center, center);
 }
 
 input[type="radio"]:checked::before {
@@ -343,64 +343,22 @@ ol {
     align-items: center;
     background-color: transparent;
     color: $black_color;
-    position: relative;
     border: none;
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 1px;
+    position: relative;
     z-index: 2;
-    border-radius: 0 !important;
     outline: none !important;
+    border-radius: 0 !important;
     font-weight: 600;
     transition: 0.4s;
 
-    &:after {
-        content: "";
-        position: absolute;
-        top: 8px;
-        left: 1px;
-        width: 100%;
-        height: 100%;
-        border: 1px solid $black_color;
-        border-radius: 70%;
-        opacity: 0.8;
-        background: transparent;
-        z-index: -2;
-        transform: rotate(1deg);
-        transition: 0.3s;
-    }
-
-    &:before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 1px solid $black_color;
-        border-radius: 70%;
-        background-color: $primary_color;
-        z-index: -1;
-        transition: 0.3s;
-    }
-
     &:hover {
         color: $white_color;
-
-        &:before {
-            background-color: $black_color;
-        }
-
-        &:after {
-            top: 0;
-        }
     }
 
     &.white-hover-btn {
-        &:before {
-            background: $white_color;
-        }
-
         &:hover {
             color: $black_color;
         }
@@ -408,14 +366,6 @@ ol {
 
     &.white-btn {
         color: $black_color;
-
-        &:after {
-            background: $white_color;
-        }
-
-        &:before {
-            background: $primary_color;
-        }
 
         &:hover {
             color: $white_color;
@@ -454,20 +404,21 @@ ol {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 100px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid rgba($black_color, 0.1);
 
     .header_menu {
-        @include flex_center(center, center);
+        @include flex(center, center);
         ul {
-            @include list_item {
+            @include list_item() {
                 --menu_padding: 5px;
                 color: $black_color;
                 font-weight: 500;
                 transition: 0.3s;
                 position: relative;
-                @include flex_center(initial, center);
+                @include flex(initial, center);
                 text-transform: uppercase;
                 padding-left: var(--menu_padding);
                 padding-right: var(--menu_padding);
@@ -503,17 +454,83 @@ ol {
     }
 
     .header_button {
-        @include flex_center(right, center);
+        @include flex(right, center);
+        column-gap: 12px;
         .theme-toggle {
-            --button_size: 40px;
-            font-size: 20px;
+            --button_size: 48px;
+            font-size: 25px;
             width: var(--button_size);
             height: var(--button_size);
             border-radius: 50%;
             background-color: $black_color;
             color: $white_color;
-            @include flex_center(center, center);
+            @include flex(center, center);
             @include shadow_3D_1;
+        }
+    }
+}
+
+.drop_down {
+    position: relative;
+
+    .drop_down_btn {
+        --button_spacing: 25px;
+        @include flex(center, center);
+        padding: {
+            left: var(--button_spacing);
+            right: var(--button_spacing);
+        }
+        min-height: 48px;
+        border-radius: $lg_border_radius;
+        position: relative;
+        z-index: 2;
+        outline: none !important;
+        border: none !important;
+        background-color: $black_color;
+        color: $white_color;
+        @include shadow_16_DP;
+
+        svg {
+            margin-left: 28px;
+        }
+
+        &:hover {
+            ~ .drop_down_list {
+                @include show_menu;
+            }
+        }
+    }
+
+    .drop_down_list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba($white_color, 0.2);
+        border-radius: $sm_border_radius;
+        padding: 8px 15px;
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba($black_color, 0.5);
+        transition: 0.3s;
+        @include hidden_menu;
+        @include shadow_16_DP;
+
+        li {
+            display: block;
+            &:not(li:last-child) {
+                margin-bottom: 5px;
+            }
+
+            a {
+                transition: 0.2s;
+                &:hover {
+                    color: $primary_color;
+                }
+            }
+        }
+
+        &:hover {
+            @include show_menu;
         }
     }
 }
