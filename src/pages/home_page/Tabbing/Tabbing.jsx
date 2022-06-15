@@ -3,14 +3,14 @@ import { TabbingData } from "../Tabbing/TabbingData";
 const Tabbing = () => {
     return (
         <>
-            <div className="tabbing_wrapper mt-50">
+            <div className="tabbing_wrapper mb-30">
                 <ul>
                     {TabbingData.map((data) => {
                         return (
                             <li key={data.id}>
                                 <button type="button" className="tabbing_button">
                                     <img width={16} src={data.icon} alt="Icon" />
-                                    {data.title}
+                                    {data.tab_title}
                                 </button>
                             </li>
                         );

@@ -8,29 +8,26 @@ export const TabbingData = [
     {
         id: 1,
         icon: UrlIcon,
-        title: "url",
+        tab_title: "url",
     },
     {
         id: 2,
         icon: TextIcon,
-        title: "Text",
+        tab_title: "Text",
     },
-
     {
         id: 3,
         icon: EmailIcon,
-        title: "Email",
+        tab_title: "Email",
     },
-
     {
         id: 4,
         icon: PhoneIcon,
-        title: "phone",
+        tab_title: "phone",
     },
-
     {
         id: 5,
         icon: SmsIcon,
-        title: "sms",
+        tab_title: "sms",
     },
 ];
