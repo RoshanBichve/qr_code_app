@@ -1,8 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Tabbing from "./Tabbing/Tabbing";
-import ColorIcon from "../../images/color_icon.svg";
-import ImageIcon from "../../images/image_icon.svg";
-import CustomizeIcon from "../../images/customize_icon.svg";
+import Box_tabbing from "./box_tabbing/box_tabbing";
 
 const HomePage = () => {
     const Submit = (e) => {
@@ -28,28 +26,7 @@ const HomePage = () => {
                                     </div>
                                     <div className="box_tabbing_wp">
                                         <h4 className="box_title h4_title">Design customization</h4>
-                                        <nav className="box_tabbing">
-                                            <ul>
-                                                <li>
-                                                    <button className="tabbing_btn is_active">
-                                                        <img src={ColorIcon} alt="Color Icon" />
-                                                        Set Color
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button className="tabbing_btn">
-                                                        <img src={ImageIcon} alt="Image Icon" />
-                                                        Add Logo Image
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button className="tabbing_btn">
-                                                        <img src={CustomizeIcon} alt="Customize Icon" />
-                                                        Customize Design
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </nav>
+                                        <Box_tabbing />
 
                                         <div className="tabbing_content">
                                             <Row>

@@ -626,7 +626,7 @@ ol {
                 margin-right: 0;
             }
 
-            .tabbing_btn {
+            .box_tabbing_btn {
                 --border_radius: 30px;
                 display: flex;
                 align-items: center;
@@ -635,9 +635,10 @@ ol {
                 padding: 0 25px;
                 border: 2px solid $light_silver_color;
                 border-radius: var(--border_radius) var(--border_radius) 0 0;
+                border-bottom: none;
                 font-size: 18px;
                 font-weight: 600;
-                min-height: 64px;
+                min-height: 62px;
                 opacity: 0.7;
                 text-transform: capitalize;
                 transition: 0.3s;
@@ -659,6 +660,23 @@ ol {
                     }
                 }
             }
+        }
+    }
+}
+
+.box_tabbing_wp {
+    .tabbing_content {
+        --border_radius: 15px;
+        padding: 30px;
+        background: rgba($white_color, 0.4);
+        border: 2px solid rgba($black_color, 0.05);
+        border-radius: 0 var(--border_radius) var(--border_radius) var(--border_radius);
+
+        .tabbing_title {
+            @include font-size($font_sizes_18);
+            color: rgba($black_color, 0.8);
+            border-bottom: 2px solid rgba($black_color, 0.06);
+            padding-bottom: 8px;
         }
     }
 }
