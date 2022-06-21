@@ -33,6 +33,31 @@ const HomePage = () => {
                                                 <Col lg={4}>
                                                     <div className="tabbing_col">
                                                         <h5 className="tabbing_title">Foreground Color</h5>
+                                                        <div className="tabbing_col_2">
+                                                            <div className="form_input_wp radio_btn_wp">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="foreground_color"
+                                                                    value="solid_color"
+                                                                    id="solid_color"
+                                                                    checked
+                                                                />
+                                                                <label className="form_label" for="solid_color">
+                                                                    solid color
+                                                                </label>
+                                                            </div>
+                                                            <div className="form_input_wp radio_btn_wp">
+                                                                <input
+                                                                    type="radio"
+                                                                    name="foreground_color"
+                                                                    value="gradient_color"
+                                                                    id="gradient_color"
+                                                                />
+                                                                <label className="form_label" for="gradient_color">
+                                                                    Gradient Color
+                                                                </label>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </Col>
 
