@@ -1,6 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import Tabbing from "./Tabbing/Tabbing";
 import Box_tabbing from "./box_tabbing/box_tabbing";
+import { YourComponent } from "../../components/ColorPicker";
 
 const HomePage = () => {
     const Submit = (e) => {
@@ -56,6 +57,12 @@ const HomePage = () => {
                                                                 <label className="form_label" for="gradient_color">
                                                                     Gradient Color
                                                                 </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <div className="tabbing_col_2">
+                                                            <div className="form_input_wp color_picker_wp">
+                                                                <YourComponent />
                                                             </div>
                                                         </div>
                                                     </div>

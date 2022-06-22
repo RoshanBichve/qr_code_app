@@ -12,6 +12,7 @@
     "node-sass": "^7.0.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
+    "react-colorful": "^5.5.1",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
     "theme-toggles": "^4.10.1",
