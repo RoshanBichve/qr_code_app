@@ -1,12 +1,17 @@
+import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Tabbing from "./Tabbing/Tabbing";
 import Box_tabbing from "./box_tabbing/box_tabbing";
-import { YourComponent } from "../../components/ColorPicker";
+import { ColorPicker } from "../../components/ColorPicker";
 
 const HomePage = () => {
     const Submit = (e) => {
         e.preventDefault();
     };
+
+    const solid_color = "#f4d558";
+
+    const [color, setColor] = useState(solid_color);
 
     return (
         <>
@@ -35,36 +40,46 @@ const HomePage = () => {
                                                     <div className="tabbing_col">
                                                         <h5 className="tabbing_title">Foreground Color</h5>
                                                         <div className="tabbing_col_2">
-                                                            <div className="form_input_wp radio_btn_wp">
-                                                                <input
-                                                                    type="radio"
-                                                                    name="foreground_color"
-                                                                    value="solid_color"
-                                                                    id="solid_color"
-                                                                    checked
-                                                                />
-                                                                <label className="form_label" for="solid_color">
-                                                                    solid color
-                                                                </label>
-                                                            </div>
-                                                            <div className="form_input_wp radio_btn_wp">
-                                                                <input
-                                                                    type="radio"
-                                                                    name="foreground_color"
-                                                                    value="gradient_color"
-                                                                    id="gradient_color"
-                                                                />
-                                                                <label className="form_label" for="gradient_color">
-                                                                    Gradient Color
-                                                                </label>
-                                                            </div>
-                                                        </div>
+                                                            <div className="tabbing_col_text">
+                                                                <div className="form_input_wp radio_btn_wp">
+                                                                    <input
+                                                                        type="radio"
+                                                                        name="foreground_color"
+                                                                        value="solid_color"
+                                                                        id="solid_color"
+                                                                        checked
+                                                                    />
+                                                                    <label className="form_label" for="solid_color">
+                                                                        solid color
+                                                                    </label>
+                                                                </div>
 
-                                                        <div className="tabbing_col_2">
-                                                            <div className="form_input_wp color_picker_wp">
-                                                                <YourComponent />
+                                                                <div className="form_input_wp color_picker_wp">
+                                                                    <ColorPicker color={color} setColor={setColor} />
+                                                                </div>
+                                                            </div>
+
+                                                            <div className="tabbing_col_text">
+                                                                <div className="form_input_wp radio_btn_wp">
+                                                                    <input
+                                                                        type="radio"
+                                                                        name="foreground_color"
+                                                                        value="gradient_color"
+                                                                        id="gradient_color"
+                                                                    />
+                                                                    <label className="form_label" for="gradient_color">
+                                                                        Gradient Color
+                                                                    </label>
+                                                                </div>
+                                                                <div className="form_input_wp color_picker_wp">
+                                                                    <ColorPicker />
+                                                                </div>
+                                                                <div className="form_input_wp color_picker_wp">
+                                                                    <ColorPicker />
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <div className="tabbing_col_2"></div>
                                                     </div>
                                                 </Col>
 

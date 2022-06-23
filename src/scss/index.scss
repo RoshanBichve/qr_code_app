@@ -720,4 +720,37 @@ ol {
     }
 }
 
+.color_picker_wp {
+    --size: 38px;
+    display: flex;
+
+    .color_picker_swatch {
+        min-width: var(--size);
+        height: var(--size);
+        border: none;
+        outline: none;
+        border-radius: 4px;
+        @include shadow_3D_Down;
+    }
+
+    .react-colorful {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        margin-top: 10px;
+        z-index: 10;
+    }
+
+    input {
+        width: 100%;
+        height: auto;
+        background: transparent;
+        border: none;
+        outline: none;
+        padding-left: 10px;
+        @include font-size($font_sizes_18);
+        font-weight: bold;
+    }
+}
+
 /*==========Common Box CSS End==========*/
