@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 
-export const ColorPicker = ({ color, setColor }) => {
+export const ColorPicker = ({ AllColor, setAllColor, isTransparent }) => {
     const ref = useRef();
-    // const [color, setColor] = useState("#f4d558");
+
     const [pickerToggle, setPickerToggle] = useState(false);
 
     useEffect(() => {
@@ -23,18 +23,34 @@ export const ColorPicker = ({ color, setColor }) => {
         };
     }, [pickerToggle]);
 
-    const color_picker_swatch = () => {
-        return setPickerToggle(!pickerToggle);
-    };
+    function color_picker_swatch() {
+        if (isTransparent) {
+            setPickerToggle(null);
+        } else if (!pickerToggle) {
+            setPickerToggle(true);
+        }
+    }
 
     return (
         <>
-            <button type="button" className="color_picker_swatch" style={{ background: `${color}` }} onClick={() => color_picker_swatch()}></button>
-            <HexColorInput color={color} onChange={setColor} onClick={() => color_picker_swatch()} placeholder="Type a color" prefixed alpha />
+            <button
+                type="button"
+                className="color_picker_swatch"
+                style={{ backgroundColor: !isTransparent ? `${AllColor}` : "rgba(0,0,0,0)" }}
+                onClick={() => color_picker_swatch()}
+            ></button>
+            <HexColorInput
+                color={!isTransparent ? `${AllColor}` : "0000000"}
+                onChange={!isTransparent ? `${setAllColor}` : null}
+                onClick={() => color_picker_swatch()}
+                placeholder="Type a color"
+                prefixed
+                alpha
+            />
 
             {pickerToggle ? (
                 <div className="color_wrapper" ref={ref}>
-                    <HexColorPicker color={color} onChange={setColor} />
+                    <HexColorPicker color={AllColor} onChange={setAllColor} />
                 </div>
             ) : null}
         </>

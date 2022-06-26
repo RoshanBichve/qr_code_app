@@ -1,4 +1,4 @@
-import { box_tabbing_data } from "./box_tabbing_data";
+import { box_tabbing_data } from "./BoxTabbingData";
 
 const box_tabbing = () => {
     return (
