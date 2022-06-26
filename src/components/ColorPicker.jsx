@@ -43,7 +43,6 @@ export const ColorPicker = ({ AllColor, setAllColor, isTransparent }) => {
                 color={!isTransparent ? `${AllColor}` : "0000000"}
                 onChange={!isTransparent ? `${setAllColor}` : null}
                 onClick={() => color_picker_swatch()}
-                placeholder="Type a color"
                 prefixed
                 alpha
             />
