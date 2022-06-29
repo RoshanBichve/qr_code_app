@@ -8,9 +8,11 @@ const Add_Logo = () => {
     const [logoIcon, setLogoIcon] = useState(LogoIconImg);
 
     const uploadImage = () => {
-        document.getElementById("logo_upload").click();
+        const form_input = document.getElementById("logo_upload");
 
-        document.getElementById("logo_upload").onchange = (e) => {
+        form_input.click();
+
+        form_input.onchange = (e) => {
             const reader = new FileReader();
             reader.onload = () => {
                 if (reader.readyState === 2) {
