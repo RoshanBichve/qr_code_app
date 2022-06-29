@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ColorPicker } from "../../../../../../components/ColorPicker";
+import BoxTabbingTitle from "../../BoxTabbingTitle";
 
 const BackgroundColor = () => {
     const [BackgroundColor, setBackgroundColor] = useState("#ffffff");
@@ -17,7 +18,8 @@ const BackgroundColor = () => {
 
     return (
         <div className="tabbing_col background_color_col">
-            <h5 className="tabbing_title">Background Color</h5>
+            <BoxTabbingTitle title="Background Color" />
+
             <div className="tabbing_col_text">
                 <div className="form_input_wp color_picker_wp">
                     <ColorPicker AllColor={BackgroundColor} setAllColor={setBackgroundColor} isTransparent={isTransparent} />

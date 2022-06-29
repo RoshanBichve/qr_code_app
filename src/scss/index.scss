@@ -787,4 +787,27 @@ ol {
         }
     }
 }
+
+.logo_input {
+    display: flex;
+    column-gap: 20px;
+
+    .logo_input_img {
+        --size: 130px;
+        min-width: var(--size);
+        height: var(--size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border: 2px solid $light_silver_color;
+        border-radius: 10px;
+        @include shadow_3D_1;
+    }
+
+    .logo_input_btn {
+        flex: 1;
+    }
+}
+
 /*==========Common Box CSS End==========*/
