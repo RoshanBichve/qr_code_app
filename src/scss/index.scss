@@ -842,6 +842,10 @@ ol {
                 background-color: $white_color;
                 border: 2px solid $light_silver_color;
                 @include shadow_3D_1;
+
+                &.isActive {
+                    border-color: $secondary_color_80;
+                }
             }
         }
     }

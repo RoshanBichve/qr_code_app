@@ -11,7 +11,7 @@ const HomePage = () => {
 
     return (
         <>
-            <section className="qr_code_generator mt-50">
+            <section className="qr_code_generator mt_50">
                 <Container fluid>
                     <Row>
                         <Col lg={12}>

@@ -5,7 +5,8 @@ const DesignCustomization = () => {
     return (
         <>
             <div className="tabbing_content">
-                {/* <SetColor /> */}
+                <SetColor />
+                <div className="my_30"></div>
                 <Add_Logo />
             </div>
         </>

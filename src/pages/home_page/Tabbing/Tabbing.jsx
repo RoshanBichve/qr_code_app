@@ -3,7 +3,7 @@ import { TabbingData } from "../Tabbing/TabbingData";
 const Tabbing = () => {
     return (
         <>
-            <div className="tabbing_wrapper mb-30">
+            <div className="tabbing_wrapper mb_30">
                 <ul>
                     {TabbingData.map((data) => {
                         return (

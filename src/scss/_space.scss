@@ -16,76 +16,76 @@ $space: (
 );
 
 @each $name, $size in $space {
-    .mt-#{$name} {
+    .mt_#{$name} {
         margin-top: $size;
     }
 }
 
 @each $name, $size in $space {
-    .mb-#{$name} {
+    .mb_#{$name} {
         margin-bottom: $size;
     }
 }
 
 @each $name, $size in $space {
-    .my-#{$name} {
+    .my_#{$name} {
         margin-top: $size;
         margin-bottom: $size;
     }
 }
 
 @each $name, $size in $space {
-    .ml-#{$name} {
+    .ml_#{$name} {
         margin-left: $size;
     }
 }
 
 @each $name, $size in $space {
-    .mr-#{$name} {
+    .mr_#{$name} {
         margin-right: $size;
     }
 }
 
 @each $name, $size in $space {
-    .mx-#{$name} {
+    .mx_#{$name} {
         margin-left: $size;
         margin-right: $size;
     }
 }
 
 @each $name, $size in $space {
-    .pt-#{$name} {
+    .pt_#{$name} {
         padding-top: $size;
     }
 }
 
 @each $name, $size in $space {
-    .pb-#{$name} {
+    .pb_#{$name} {
         padding-bottom: $size;
     }
 }
 
 @each $name, $size in $space {
-    .py-#{$name} {
+    .py_#{$name} {
         padding-top: $size;
         padding-bottom: $size;
     }
 }
 
 @each $name, $size in $space {
-    .pl-#{$name} {
+    .pl_#{$name} {
         padding-left: $size;
     }
 }
 
 @each $name, $size in $space {
-    .pr-#{$name} {
+    .pr_#{$name} {
         padding-right: $size;
     }
 }
 
 @each $name, $size in $space {
-    .px-#{$name} {
+    .px_#{$name} {
         padding-left: $size;
         padding-right: $size;
     }
@@ -93,7 +93,7 @@ $space: (
 
 .row {
     @each $name, $size in $space {
-        &.g-#{$name} {
+        &.g_#{$name} {
             --gutter-x: #{$size};
             --gutter-Y: #{$size};
             margin-top: calc(-1 * var(--gutter-Y));
@@ -120,76 +120,76 @@ $space-md-mobile: (
 
 @media (max-width: 1199px) {
     @each $name, $size in $space-md-mobile {
-        .mt-#{$name} {
+        .mt_#{$name} {
             margin-top: $size;
         }
     }
 
     @each $name, $size in $space-md-mobile {
-        .mb-#{$name} {
+        .mb_#{$name} {
             margin-bottom: $size;
         }
     }
 
     @each $name, $size in $space-md-mobile {
-        .my-#{$name} {
+        .my_#{$name} {
             margin-top: $size;
             margin-bottom: $size;
         }
     }
 
     @each $name, $size in $space {
-        .ml-#{$name} {
+        .ml_#{$name} {
             margin-left: $size;
         }
     }
 
     @each $name, $size in $space {
-        .mr-#{$name} {
+        .mr_#{$name} {
             margin-right: $size;
         }
     }
 
     @each $name, $size in $space {
-        .mx-#{$name} {
+        .mx_#{$name} {
             margin-left: $size;
             margin-right: $size;
         }
     }
 
     @each $name, $size in $space-md-mobile {
-        .pt-#{$name} {
+        .pt_#{$name} {
             padding-top: $size;
         }
     }
 
     @each $name, $size in $space-md-mobile {
-        .pb-#{$name} {
+        .pb_#{$name} {
             padding-bottom: $size;
         }
     }
 
     @each $name, $size in $space-md-mobile {
-        .py-#{$name} {
+        .py_#{$name} {
             padding-top: $size;
             padding-bottom: $size;
         }
     }
 
     @each $name, $size in $space {
-        .pl-#{$name} {
+        .pl_#{$name} {
             padding-left: $size;
         }
     }
 
     @each $name, $size in $space {
-        .pr-#{$name} {
+        .pr_#{$name} {
             padding-right: $size;
         }
     }
 
     @each $name, $size in $space {
-        .px-#{$name} {
+        .px_#{$name} {
             padding-left: $size;
             padding-right: $size;
         }
