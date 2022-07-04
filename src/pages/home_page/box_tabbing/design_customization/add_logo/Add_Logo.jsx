@@ -36,17 +36,15 @@ const Add_Logo = () => {
     };
 
     return (
-        <div>
-            <Row>
-                <Col lg={4}>
-                    <LogoUpload logoIcon={logoIcon} uploadImage={uploadImage} removeImage={removeImage} Transparent_logo_bg={Transparent_logo_bg} />
-                </Col>
+        <Row>
+            <Col lg={4}>
+                <LogoUpload logoIcon={logoIcon} uploadImage={uploadImage} removeImage={removeImage} Transparent_logo_bg={Transparent_logo_bg} />
+            </Col>
 
-                <Col lg={8}>
-                    <LogoGallery setLogoIcon={setLogoIcon} iconActive={iconActive} setIconActive={setIconActive} />
-                </Col>
-            </Row>
-        </div>
+            <Col lg={8}>
+                <LogoGallery setLogoIcon={setLogoIcon} iconActive={iconActive} setIconActive={setIconActive} />
+            </Col>
+        </Row>
     );
 };
 

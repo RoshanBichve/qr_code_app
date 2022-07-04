@@ -24,11 +24,7 @@ const HomePage = () => {
                                 <form onSubmit={Submit}>
                                     <UrlTab />
 
-                                    <div className="box_tabbing_wp">
-                                        <h4 className="box_title h4_title">Design customization</h4>
-                                        <BoxTabbing />
-                                        <DesignCustomization />
-                                    </div>
+                                    <BoxTabbing />
                                 </form>
                             </div>
                         </Col>
