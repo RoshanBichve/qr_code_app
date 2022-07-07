@@ -1,27 +1,17 @@
 import { useState } from "react";
-import { BoxTabbingData } from "./BoxTabbingData";
+import BoxTabbingData from "./BoxTabbingData";
 import DesignCustomization from "./design_customization/DesignCustomization";
 
-const TabbingData = [
-    ...new Set(
-        BoxTabbingData.map((data) => {
-            return data.title;
-        })
-    ),
-];
-
 const BoxTabbing = () => {
-    const [tabbingData, setTabbingData] = useState(TabbingData);
-    const [boxData, setBoxData] = useState(BoxTabbingData);
+    const [activeTab, setActiveTab] = useState("Set Color");
+    const [currentTab, setCurrentTab] = useState(BoxTabbingData[0]);
 
-    const BoxTabbingBtn = (curElem) => {
-        console.log(curElem);
-        const TabbingData = boxData.filter((e) => {
-            console.log(e.title);
-            return e.title === curElem;
+    const BoxTabbingBtn = (currentTab) => {
+        setActiveTab(currentTab);
+        const currentTabContent = BoxTabbingData.filter((item) => {
+            return item.title === currentTab;
         });
-
-        setBoxData(tabbingData);
+        setCurrentTab(currentTabContent[0]);
     };
 
     return (
@@ -30,10 +20,14 @@ const BoxTabbing = () => {
                 <h4 className="box_title h4_title">Design customization</h4>
                 <nav className="box_tabbing">
                     <ul>
-                        {BoxTabbingData.map((data, index) => {
+                        {BoxTabbingData.map((data) => {
                             return (
-                                <li key={index}>
-                                    <button className="box_tabbing_btn" onClick={() => BoxTabbingBtn(data)}>
+                                <li key={data}>
+                                    <button
+                                        type="button"
+                                        className={`${activeTab === data.title ? "box_tabbing_btn is_active" : "box_tabbing_btn"}`}
+                                        onClick={() => BoxTabbingBtn(data.title)}
+                                    >
                                         <img src={data.icon} alt={data.title} />
                                         {data.title}
                                     </button>
@@ -42,7 +36,7 @@ const BoxTabbing = () => {
                         })}
                     </ul>
                 </nav>
-                <DesignCustomization />
+                <DesignCustomization currentTab={currentTab} />
             </div>
         </>
     );
