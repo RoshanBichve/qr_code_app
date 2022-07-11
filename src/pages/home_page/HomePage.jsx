@@ -2,7 +2,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import Tabbing from "./Tabbing/Tabbing";
 import BoxTabbing from "./box_tabbing/BoxTabbing";
 import UrlTab from "./Tabbing/url_tab/UrlTab";
-import DesignCustomization from "./box_tabbing/design_customization/DesignCustomization";
 
 const HomePage = () => {
     const Submit = (e) => {

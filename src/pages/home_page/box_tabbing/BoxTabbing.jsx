@@ -1,6 +1,7 @@
 import { useState } from "react";
 import BoxTabbingData from "./BoxTabbingData";
 import DesignCustomization from "./design_customization/DesignCustomization";
+import Demo from "./demo";
 
 const BoxTabbing = () => {
     const [activeTab, setActiveTab] = useState("Set Color");
@@ -22,7 +23,7 @@ const BoxTabbing = () => {
                     <ul>
                         {BoxTabbingData.map((data) => {
                             return (
-                                <li key={data}>
+                                <li key={data.id}>
                                     <button
                                         type="button"
                                         className={`${activeTab === data.title ? "box_tabbing_btn is_active" : "box_tabbing_btn"}`}
@@ -38,6 +39,8 @@ const BoxTabbing = () => {
                 </nav>
                 <DesignCustomization currentTab={currentTab} />
             </div>
+
+            <Demo />
         </>
     );
 };
