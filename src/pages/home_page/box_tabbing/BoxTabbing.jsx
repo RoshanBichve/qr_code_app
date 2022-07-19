@@ -1,24 +1,17 @@
 import { useState } from "react";
 import BoxTabbingData from "./BoxTabbingData";
-import DesignCustomization from "./design_customization/DesignCustomization";
-import Demo from "./demo";
 
 const BoxTabbing = () => {
-    const [activeTab, setActiveTab] = useState("Set Color");
-    const [currentTab, setCurrentTab] = useState(BoxTabbingData[0]);
+    const [toggle, setToggle] = useState(1);
 
-    const BoxTabbingBtn = (currentTab) => {
-        setActiveTab(currentTab);
-        const currentTabContent = BoxTabbingData.filter((item) => {
-            return item.title === currentTab;
-        });
-        setCurrentTab(currentTabContent[0]);
+    const toggleBtn = (e) => {
+        setToggle(e);
     };
-
     return (
         <>
             <div className="box_tabbing_wp">
                 <h4 className="box_title h4_title">Design customization</h4>
+                <BoxTabbing />
                 <nav className="box_tabbing">
                     <ul>
                         {BoxTabbingData.map((data) => {
@@ -26,8 +19,8 @@ const BoxTabbing = () => {
                                 <li key={data.id}>
                                     <button
                                         type="button"
-                                        className={`${activeTab === data.title ? "box_tabbing_btn is_active" : "box_tabbing_btn"}`}
-                                        onClick={() => BoxTabbingBtn(data.title)}
+                                        className={`${toggle === data.id ? "box_tabbing_btn is_active" : "box_tabbing_btn"}`}
+                                        onClick={() => toggleBtn(data.id)}
                                     >
                                         <img src={data.icon} alt={data.title} />
                                         {data.title}
@@ -37,10 +30,15 @@ const BoxTabbing = () => {
                         })}
                     </ul>
                 </nav>
-                <DesignCustomization currentTab={currentTab} />
-            </div>
 
-            <Demo />
+                {BoxTabbingData.map((data) => {
+                    return (
+                        <div className={`${toggle === data.id ? "d-block tabbing_content" : "d-none"}`} key={data.id}>
+                            {data.main}
+                        </div>
+                    );
+                })}
+            </div>
         </>
     );
 };
